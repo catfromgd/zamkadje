@@ -5,7 +5,7 @@ import Velo from './components/velo/Velo'
 
 
 function App() {
-    // Если юзер зашел через velo.твойсайт.ру
+  // Если юзер зашел через velo.твойсайт.ру
   if (window.location.hostname.startsWith('velo.')) {
     return <Velo />
   }
@@ -40,18 +40,18 @@ function App() {
     setShowWIPModal(false)
   }
 
-  
+
 
   return (
-    <div className="site-wrapper">
+    <div className={styles.site - wrapper}>
       {/* МОДАЛЬНОЕ ОКНО: Сайт не доделан */}
       {showWIPModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className={styles.modal - overlay}>
+          <div className={styles.modal - content}>
             <h2>⚠️ это НЕрабочий сайт</h2>
             <p>я выложил это в сеть, чтобы нормально протестировать</p>
             <p>это прост мой сайт не ищите тут смысла</p>
-            <button className="modal-btn" onClick={closeWIPModal}>
+            <button className={styles.modal - btn} onClick={closeWIPModal}>
               Я понял, пусти
             </button>
           </div>
@@ -59,42 +59,42 @@ function App() {
       )}
 
       {/* Шапка твоего личного сайта */}
-      <header className="main-header">
-        <div className="logo">
+      <header className={styles.main - header}>
+        <div className={styles.logo}>
           <a href="/">zamkadje.xyz</a>
         </div>
-        <nav className="nav-links">
+        <nav className={styles.nav - links}>
           <a href="#about">Обо мне</a>
           <a href="#projects">Мои проекты</a>
-          <a href="https://yourdomain.com" className="nav-btn" target="_blank" rel="noreferrer">
+          <a href="https://yourdomain.com" className={styles.nav - btn} target="_blank" rel="noreferrer">
             ВелоКарта
           </a>
         </nav>
       </header>
 
       {/* Основной контент */}
-      <main className="main-content">
-        <section id="about" className="hero-section">
+      <main className={styles.main - content}>
+        <section id="about" className={styles.hero - section}>
           <h1>Привет, это мой сайт</h1>
           <p>njklnjklnknlknlknljnlknlkj</p>
         </section>
 
         {/* Контейнер с проектами */}
-        <section id="projects" className="projects-section">
+        <section id="projects" className={styles.projects - section}>
           <h2>Мои проекты</h2>
-          
+
           <div className="project-card featured">
-            <div className="project-info">
+            <div className={styles.project - info}>
               <h3>Интерактивная ВелоКарта</h3>
               <p>меня прост бесит что надо вечно искать где-то веломаршруты в карту се чтоб по ним ездить (я то большой фанат велоспорта), поэтому решил сделать это.</p>
               <p>так то не расчитываю на то, что это кто-то использовать будет, но вроде прикольная идея</p>
               <p>собственно, для чего я это выложил вообще: у меня по идейке кнопка ниже должна переводить пользователя на velo.zamkadje.xyz</p>
-              <a href="https://velo.zamkadje.xyz" className="project-link-btn" target="_blank" rel="noreferrer">
+              <a href="https://velo.zamkadje.xyz" className={styles.project - link - btn} target="_blank" rel="noreferrer">
                 Открыть ↗
               </a>
             </div>
-            
-            <div className="project-demo-embed">
+
+            <div className={styles.project - demo - embed}>
               <BikeMap />
             </div>
           </div>
@@ -107,9 +107,9 @@ function App() {
       </main>
 
       {/* Дефолтный футер */}
-      <footer className="main-footer">
+      <footer className={styles.main - footer}>
         <p>&copy; {new Date().getFullYear()} zamkadje.xyz. хз зачем оно нужно.</p>
-        <div className="footer-meta">
+        <div className={styles.footer - meta}>
           <a href="#privacy">Конфиденциальность (оно никуда не ведёт)</a>
           <a href="#terms">Соглашение (оно тоже)</a>
         </div>
@@ -117,7 +117,7 @@ function App() {
 
       {/* Баннер куки */}
       {showCookies && (
-        <div className="cookie-banner">
+        <div className={styles.cookie - banner}>
           <p>Этот сайт использует куки (не использует, но зато сайт пустым не кажется).</p>
           <button onClick={acceptCookies}>Ладно</button>
         </div>
