@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import BikeMap from '../veloMap/BikeMap'
-import styles from './components/velo/velo.module.css'
+import styles from './velo.module.css'
 
 function Velo() {
   const [showCookies, setShowCookies] = useState(false)
