@@ -1,0 +1,25 @@
+.project-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #2d2d2d;
+}
+
+.project-card.featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.project-card.placeholder {
+  border: 1px dashed #444;
+  background: transparent;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .project-card.featured {
+    grid-template-columns: 1fr;
+  }
+}

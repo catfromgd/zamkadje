@@ -15,14 +15,14 @@ body {
   background-color: var(--light-bg);
 }
 
-.app-container {
+.veloContainer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
 /* Шапка */
-.site-header {
+.siteHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,65 +31,65 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.header-logo a {
+.headerLogo a {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--primary-color);
   text-decoration: none;
 }
 
-.header-nav {
+.headerNav {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.header-nav a {
+.headerNav a {
   color: var(--text-main);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
 }
 
-.header-nav a:hover {
+.headerNav a:hover {
   color: var(--primary-color);
 }
 
-.header-nav .nav-btn-primary {
+.headerNav .navBtnPrimary {
   background-color: var(--primary-color);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 6px;
 }
 
-.header-nav .nav-btn-primary:hover {
+.headerNav .navBtnPrimary:hover {
   background-color: var(--primary-hover);
   color: white;
 }
 
 /* Главный блок страницы */
-.site-main {
+.siteMain {
   flex: 1;
 }
 
-.hero-section {
+.heroSection {
   text-align: center;
   padding: 4rem 2rem;
   background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
 }
 
-.hero-section h1 {
+.heroSection h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.hero-section p {
+.heroSection p {
   font-size: 1.2rem;
   color: var(--text-muted);
   margin-bottom: 2rem;
 }
 
-.cta-button {
+.ctaButton {
   background-color: var(--dark-bg);
   color: white;
   padding: 0.8rem 1.8rem;
@@ -99,12 +99,12 @@ body {
   transition: opacity 0.2s;
 }
 
-.cta-button:hover {
+.ctaButton:hover {
   opacity: 0.9;
 }
 
 /* Секция с картой */
-.map-section {
+.mapSection {
   padding: 3rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -112,12 +112,12 @@ body {
   box-sizing: border-box;
 }
 
-.map-section h2 {
+.mapSection h2 {
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.map-wrapper {
+.mapWrapper {
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -126,14 +126,14 @@ body {
 }
 
 /* Подвал */
-.site-footer {
+.siteFooter {
   background-color: var(--dark-bg);
   color: #ffffff;
   padding: 1.5rem 2rem;
   margin-top: auto;
 }
 
-.footer-content {
+.footerContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -143,23 +143,23 @@ body {
   margin: 0 auto;
 }
 
-.footer-links {
+.footerLinks {
   display: flex;
   gap: 1.5rem;
 }
 
-.footer-links a {
+.footerLinks a {
   color: #b3b3b3;
   text-decoration: none;
   font-size: 0.9rem;
 }
 
-.footer-links a:hover {
+.footerLinks a:hover {
   color: #ffffff;
 }
 
 /* Куки баннер */
-.cookie-banner {
+.cookieBanner {
   position: fixed;
   bottom: 20px;
   left: 50%;
@@ -177,12 +177,12 @@ body {
   max-width: 500px;
 }
 
-.cookie-text {
+.cookieText {
   font-size: 0.9rem;
   line-height: 1.4;
 }
 
-.cookie-btn {
+.cookieBtn {
   background-color: var(--primary-color);
   color: white;
   border: none;
@@ -193,17 +193,17 @@ body {
   white-space: nowrap;
 }
 
-.cookie-btn:hover {
+.cookieBtn:hover {
   background-color: var(--primary-hover);
 }
 
 /* Адаптив под мобилки */
 @media (max-width: 768px) {
-  .site-header, .footer-content, .cookie-banner {
+  .siteHeader, .footerContent, .cookieBanner {
     flex-direction: column;
     text-align: center;
   }
-  .header-nav {
+  .headerNav {
     margin-top: 1rem;
     flex-direction: column;
     gap: 1rem;

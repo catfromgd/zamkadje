@@ -1,29 +1,17 @@
 import { useState, useEffect } from 'react'
-import './App.css'
 import BikeMap from './components/veloMap/BikeMap'
 import Velo from './components/velo/Velo'
-
+import styles from './App.module.css' // 1. ИСПРАВЛЕНО: Добавлен импорт CSS-модуля
 
 function App() {
-  // Если юзер зашел через velo.твойсайт.ру
-  if (window.location.hostname.startsWith('velo.')) {
-    return <Velo />
-  }
-
-
-
-
-
-
   const [showCookies, setShowCookies] = useState(false)
-  const [showWIPModal, setShowWIPModal] = useState(false) // Стейт для модалки недоделанного сайта
+  const [showWIPModal, setShowWIPModal] = useState(false)
 
+  // 2. ИСПРАВЛЕНО: Все хуки теперь находятся строго на самом верху компонента
   useEffect(() => {
-    // Проверка для куки (живет долго)
     const isAccepted = localStorage.getItem('cookies_ok')
     if (!isAccepted) setShowCookies(true)
 
-    // Проверка для модалки "WIP" (показывается один раз за сессию в браузере)
     const isWIPNotified = sessionStorage.getItem('wip_notified')
     if (!isWIPNotified) {
       setShowWIPModal(true)
@@ -40,18 +28,22 @@ function App() {
     setShowWIPModal(false)
   }
 
-
+  // 3. ИСПРАВЛЕНО: Проверка поддомена перенесена ПОСЛЕ хуков
+  if (window.location.hostname.startsWith('velo.')) {
+    return <Velo />
+  }
 
   return (
-    <div className={styles.site - wrapper}>
+    // 4. ИСПРАВЛЕНО: Все классы переведены на camelCase без пробелов и дефисов
+    <div className={styles.siteWrapper}>
       {/* МОДАЛЬНОЕ ОКНО: Сайт не доделан */}
       {showWIPModal && (
-        <div className={styles.modal - overlay}>
-          <div className={styles.modal - content}>
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
             <h2>⚠️ это НЕрабочий сайт</h2>
             <p>я выложил это в сеть, чтобы нормально протестировать</p>
             <p>это прост мой сайт не ищите тут смысла</p>
-            <button className={styles.modal - btn} onClick={closeWIPModal}>
+            <button className={styles.modalBtn} onClick={closeWIPModal}>
               Я понял, пусти
             </button>
           </div>
@@ -59,42 +51,44 @@ function App() {
       )}
 
       {/* Шапка твоего личного сайта */}
-      <header className={styles.main - header}>
+      <header className={styles.mainHeader}>
         <div className={styles.logo}>
           <a href="/">zamkadje.xyz</a>
         </div>
-        <nav className={styles.nav - links}>
+        <nav className={styles.navLinks}>
           <a href="#about">Обо мне</a>
           <a href="#projects">Мои проекты</a>
-          <a href="https://yourdomain.com" className={styles.nav - btn} target="_blank" rel="noreferrer">
+          <a href="https://velo.zamkadje.xyz" className={styles.navBtn} target="_blank" rel="noreferrer">
             ВелоКарта
           </a>
         </nav>
       </header>
 
       {/* Основной контент */}
-      <main className={styles.main - content}>
-        <section id="about" className={styles.hero - section}>
+      <main className={styles.mainContent}>
+        <section id="about" className={styles.heroSection}>
           <h1>Привет, это мой сайт</h1>
           <p>njklnjklnknlknlknljnlknlkj</p>
         </section>
 
         {/* Контейнер с проектами */}
-        <section id="projects" className={styles.projects - section}>
+        <section id="projects" className={styles.projectsSection}>
           <h2>Мои проекты</h2>
 
+          {/* Внимание: Обычные глобальные классы ("project-card featured") 
+              оставляем строками, если они прописаны в глобальном CSS */}
           <div className="project-card featured">
-            <div className={styles.project - info}>
+            <div className={styles.projectInfo}>
               <h3>Интерактивная ВелоКарта</h3>
               <p>меня прост бесит что надо вечно искать где-то веломаршруты в карту се чтоб по ним ездить (я то большой фанат велоспорта), поэтому решил сделать это.</p>
               <p>так то не расчитываю на то, что это кто-то использовать будет, но вроде прикольная идея</p>
               <p>собственно, для чего я это выложил вообще: у меня по идейке кнопка ниже должна переводить пользователя на velo.zamkadje.xyz</p>
-              <a href="https://velo.zamkadje.xyz" className={styles.project - link - btn} target="_blank" rel="noreferrer">
+              <a href="https://velo.zamkadje.xyz" className={styles.projectLinkBtn} target="_blank" rel="noreferrer">
                 Открыть ↗
               </a>
             </div>
 
-            <div className={styles.project - demo - embed}>
+            <div className={styles.projectDemoEmbed}>
               <BikeMap />
             </div>
           </div>
@@ -107,9 +101,9 @@ function App() {
       </main>
 
       {/* Дефолтный футер */}
-      <footer className={styles.main - footer}>
+      <footer className={styles.mainFooter}>
         <p>&copy; {new Date().getFullYear()} zamkadje.xyz. хз зачем оно нужно.</p>
-        <div className={styles.footer - meta}>
+        <div className={styles.footerMeta}>
           <a href="#privacy">Конфиденциальность (оно никуда не ведёт)</a>
           <a href="#terms">Соглашение (оно тоже)</a>
         </div>
@@ -117,9 +111,9 @@ function App() {
 
       {/* Баннер куки */}
       {showCookies && (
-        <div className={styles.cookie - banner}>
+        <div className={styles.cookieBanner}>
           <p>Этот сайт использует куки (не использует, но зато сайт пустым не кажется).</p>
-          <button onClick={acceptCookies}>Ладно</button>
+          <button className={styles.cookieBannerBtn} onClick={acceptCookies}>Ладно</button>
         </div>
       )}
     </div>
